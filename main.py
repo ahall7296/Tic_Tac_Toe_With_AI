@@ -32,7 +32,10 @@ def delectRandom(board):
     pass
 
 def isBoardFull(board):
-    pass
+    if board.count(' ') > 1:
+        return True
+    else:
+        return False
 
 def main():
     print ('Thanks for playing our Tic-Tac-Toe game!')
