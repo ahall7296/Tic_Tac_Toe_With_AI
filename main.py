@@ -39,6 +39,12 @@ def playerMove():
         except:
             print('Please type a number')
 
+def selectRandom(li):
+    import random
+    ln = len(li)
+    r = random.randrange(0, ln)
+    return li[r]
+
 def compMove():
     pass
 
