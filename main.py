@@ -77,23 +77,26 @@ def compMove():
         move = selectRandom(cornersOpen)
         return move
 
-def delectRandom(board):
-    pass
+def selectRandom(li):
+    import random
+    ln = len(li)
+    r = random.randrange(0,ln)
+    return li[r]    
 
 def isBoardFull(board):
     if board.count(' ') > 1:
-        return True
-    else:
         return False
+    else:
+        return True
 
 def main():
     print ('Thanks for playing our Tic-Tac-Toe game!')
-    printBoard()
+    printBoard(board)
 
     while not(isBoardFull(board)):
         if not(isWinner(board,  'O')):
             playerMove()
-            printBoard()
+            printBoard(board)
         else:
             print('Sorry, you lost!')
             break
@@ -105,7 +108,7 @@ def main():
             else:
                 insertLetter('O', move)
                 print('Computer placed an \'O\' in position', move, ':')
-                printBoard()
+                printBoard(board)
         else:
             print('Great Job, You Won!')
             break
@@ -113,4 +116,12 @@ def main():
     if isBoardFull (board):
         print('Tie Game!')
 
+while True:
+    answer = input('Do you want to play Tic Tac Toe? (Y/N)')
+    if answer.lower() == 'y' or answer.lower == 'yes':
+        board = [' ' for x in range(10)]
+        print('-----------------------------------')
+        main()
+    else:
+        break
 main()
